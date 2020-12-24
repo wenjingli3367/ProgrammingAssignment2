@@ -1,8 +1,7 @@
 ## Put comments here that give an overall description of what your
-## functions do Inverse of a Matrix
+##The following functions are used to create a special object that stores a matrix and caches its inverse. 
 
 ## Write a short comment describing this function
-
 ##1.  `makeCacheMatrix`: This function creates a special "matrix" object
 #that can cache its inverse, which is a data frame containing a function
 
