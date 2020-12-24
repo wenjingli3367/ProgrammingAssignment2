@@ -2,25 +2,27 @@
 ## functions do Inverse of a Matrix
 
 ## Write a short comment describing this function
+
 ##1.  `makeCacheMatrix`: This function creates a special "matrix" object
 #that can cache its inverse, which is a data frame containing a function
-#1.  set the value of the matrix
-#2.  get the value of the matrix
-#3.  set the value of the inverse of a matrix
-#4.  get the value of the inverse of a matrix
 
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
+  #1.  set the value of the matrix 
   set <- function(y) {
-    x <<- y
-    m <<- NULL
+  x <<- y
+  m <<- NULL
   }
+  #2.  get the value of the matrix
   get <- function() x
-  setinv <- function(inv) m <<- inv
-  getinv <- function() m
-  list(set = set, get = get,
-       setinv = setinv,
-       getinv = getinv)
+  #3.  set the value of the inverse of a matrix
+  setinverse <- function(inverse) m <<- inverse
+  #4.  get the value of the inverse of a matrix
+  getinverse <- function() m
+  list(set = set, 
+       get = get,
+       setinverse = setinverse,
+       getinverse = getinverse)
 }
 
 
@@ -31,15 +33,15 @@ makeCacheMatrix <- function(x = matrix()) {
 #`cacheSolve` should retrieve the inverse from the cache.
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-  m <- x$getinv()
+  ## Return a matrix that is the inverse of 'x'
+  m <- x$getinverse()
   if(!is.null(m)) {
     message("getting cached data")
     return(m)
   }
   data <- x$get()
-  m <- inv(data, ...)
-  x$setinv(m)
+  m <- solve(data, ...)
+  x$setinverse(m)
   m
 }
 
